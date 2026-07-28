@@ -14,6 +14,7 @@ export function Navbar() {
   const darkHero =
     pathname === "/about" ||
     pathname === "/banquet" ||
+    pathname === "/contact" ||
     pathname.startsWith("/hotels/");
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
@@ -64,7 +65,7 @@ export function Navbar() {
             />
             <NavLink
               label="Contact"
-              href="/#contact"
+              href="/contact"
               active={pathname === "/contact"}
               light={!scrolled}
             />

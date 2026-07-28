@@ -22,7 +22,7 @@ type MobileMenuProps = {
 
 const mobileLinks = [
   ["Banquets", "/banquet"],
-  ["Contact", "/#contact"],
+  ["Contact", "/contact"],
 ] as const;
 
 export function MobileMenu({ open, onClose }: MobileMenuProps) {

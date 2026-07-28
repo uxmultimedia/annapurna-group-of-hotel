@@ -5,7 +5,7 @@ const links = [
   ["About", "/about"],
   ["Hotels", "/#hotels"],
   ["Banquets", "/banquet"],
-  ["Contact", "/#contact"],
+  ["Contact", "/contact"],
 ] as const;
 
 export function QuickLinks() {
