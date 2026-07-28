@@ -1,4 +1,5 @@
 import { AboutPreview } from "@/components/about/AboutPreview";
+import { BanquetPreview } from "@/components/banquet/BanquetPreview";
 import { Hero } from "@/components/hero/Hero";
 import { HotelsSection } from "@/components/hotels/HotelsSection";
 import { Navbar } from "@/components/navbar/Navbar";
@@ -11,6 +12,7 @@ export default function Home() {
         <Hero />
         <HotelsSection />
         <AboutPreview />
+        <BanquetPreview />
       </main>
     </>
   );
