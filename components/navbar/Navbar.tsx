@@ -51,19 +51,21 @@ export function Navbar() {
 
           <nav
             aria-label="Primary navigation"
-            className="hidden items-center gap-9 lg:flex xl:gap-11"
+            className="hidden items-center gap-12 lg:flex"
           >
-            <NavLink label="About" href="/about" active={pathname === "/about"} />
-            <HotelsDropdown active={pathname.startsWith("/hotels")} />
+            <NavLink label="About" href="/about" active={pathname === "/about"} light={!scrolled} />
+            <HotelsDropdown active={pathname.startsWith("/hotels")} light={!scrolled} />
             <NavLink
               label="Banquets"
               href="/banquets"
               active={pathname === "/banquets"}
+              light={!scrolled}
             />
             <NavLink
               label="Contact"
               href="/contact"
               active={pathname === "/contact"}
+              light={!scrolled}
             />
           </nav>
 
@@ -71,9 +73,13 @@ export function Navbar() {
             <a
               href="tel:+917566500040"
               aria-label="Call Annapurna Group of Hotels at 75665 00040"
-              className="group flex items-center gap-2.5 text-[12px] font-semibold tracking-[0.055em] text-[#264638] transition-colors hover:text-[var(--emerald)]"
+              className={`group flex items-center gap-2.5 text-[12px] font-semibold tracking-[0.055em] transition-colors hover:text-[#c8ab6b] ${
+                scrolled ? "text-[#264638]" : "text-white"
+              }`}
             >
-              <span className="grid size-8 place-items-center rounded-full border border-[#173c2b]/13 transition-colors group-hover:border-[var(--emerald)]/25">
+              <span className={`grid size-8 place-items-center rounded-full border transition-colors ${
+                scrolled ? "border-[#173c2b]/13" : "border-white/25"
+              }`}>
                 <Phone size={14} strokeWidth={1.7} />
               </span>
               <span className="hidden xl:inline">75665 00040</span>
@@ -109,17 +115,21 @@ function NavLink({
   label,
   href,
   active,
+  light,
 }: {
   label: string;
   href: string;
   active: boolean;
+  light: boolean;
 }) {
   return (
     <Link
       href={href}
       aria-current={active ? "page" : undefined}
-      className={`group relative flex h-12 items-center px-1 text-[13px] tracking-[0.08em] transition-colors duration-300 hover:text-[var(--emerald)] ${
-        active ? "font-semibold text-[var(--emerald)]" : "font-medium"
+      className={`group relative flex h-12 items-center px-1 text-[13px] tracking-[0.08em] transition-colors duration-300 hover:text-[#c8ab6b] ${
+        active
+          ? "font-semibold text-[var(--emerald)]"
+          : `font-medium ${light ? "text-white" : "text-[#243d31]"}`
       }`}
     >
       {label}

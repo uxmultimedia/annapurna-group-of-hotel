@@ -58,10 +58,10 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           className="fixed inset-0 z-[100] overflow-y-auto bg-[#f8f3e9]"
         >
           <motion.div
-            initial={{ y: -24 }}
-            animate={{ y: 0 }}
-            exit={{ y: -18 }}
-            transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="mx-auto flex min-h-full w-full max-w-[760px] flex-col px-6 pb-8 pt-5 sm:px-10"
           >
             <div className="flex items-center justify-between border-b border-[#193f2e]/12 pb-5">
@@ -103,7 +103,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                   <ChevronDown
                     size={22}
                     strokeWidth={1.4}
-                    className={`transition-transform duration-300 ${hotelsOpen ? "rotate-180" : ""}`}
+                    className={`transition-opacity duration-300 ${hotelsOpen ? "opacity-40" : "opacity-100"}`}
                   />
                 </button>
                 <AnimatePresence initial={false}>
