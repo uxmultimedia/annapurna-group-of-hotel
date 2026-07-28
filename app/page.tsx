@@ -1,4 +1,5 @@
 import { Hero } from "@/components/hero/Hero";
+import { HotelsSection } from "@/components/hotels/HotelsSection";
 import { Navbar } from "@/components/navbar/Navbar";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
       <Navbar />
       <main aria-label="Page content">
         <Hero />
+        <HotelsSection />
       </main>
     </>
   );
