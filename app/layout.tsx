@@ -25,6 +25,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero/hero-poster.jpg"
+          fetchPriority="high"
+        />
+      </head>
       <body className={`${manrope.variable} ${cormorant.variable} antialiased`}>
         {children}
       </body>

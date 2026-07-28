@@ -22,9 +22,9 @@ export function Navbar() {
   return (
     <>
       <motion.header
-        initial={false}
-        animate={{ height: scrolled ? 76 : 92 }}
-        transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+        initial={{ opacity: 0 }}
+        animate={{ height: scrolled ? 76 : 92, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
         className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 ${
           scrolled
             ? "border-[#183f2d]/8 bg-[#f8f3e9]/90 shadow-[0_7px_30px_rgba(24,55,41,0.08)] backdrop-blur-xl"
