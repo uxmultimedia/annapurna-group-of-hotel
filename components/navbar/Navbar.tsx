@@ -11,7 +11,10 @@ import BrandLogo from "@/components/ui/BrandLogo";
 
 export function Navbar() {
   const pathname = usePathname();
-  const darkHero = pathname === "/about" || pathname.startsWith("/hotels/");
+  const darkHero =
+    pathname === "/about" ||
+    pathname === "/banquet" ||
+    pathname.startsWith("/hotels/");
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -55,8 +58,8 @@ export function Navbar() {
             <HotelsDropdown active={pathname.startsWith("/hotels")} light={!scrolled} />
             <NavLink
               label="Banquets"
-              href="/#banquets"
-              active={pathname === "/banquets"}
+              href="/banquet"
+              active={pathname === "/banquet"}
               light={!scrolled}
             />
             <NavLink

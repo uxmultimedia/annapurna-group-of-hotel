@@ -97,7 +97,7 @@ export function BanquetCard({ venue }: { venue: BanquetVenue }) {
           className="mt-8 flex flex-col gap-3 sm:flex-row"
         >
           <Link
-            href={`/banquets/book?venue=${venue.slug}`}
+            href={`/banquet#enquiry`}
             aria-label={`Book an event at ${venue.name}`}
             className="group/button flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[var(--emerald)] px-6 text-[10px] font-semibold uppercase tracking-[0.1em] text-white shadow-[0_10px_26px_rgba(15,104,71,0.18)] transition-[transform,background-color,box-shadow] duration-[350ms] hover:-translate-y-0.5 hover:bg-[var(--emerald-deep)] hover:shadow-[0_14px_32px_rgba(15,104,71,0.25)] sm:w-fit"
           >
@@ -110,7 +110,7 @@ export function BanquetCard({ venue }: { venue: BanquetVenue }) {
             />
           </Link>
           <Link
-            href={`/banquets/${venue.slug}`}
+            href={`/banquet#${venue.slug}`}
             aria-label={`View details for ${venue.name}`}
             className="group/details flex h-12 w-full items-center justify-center gap-2 rounded-full border border-[#1d563d]/18 px-6 text-[10px] font-semibold uppercase tracking-[0.1em] text-[var(--emerald)] transition-[transform,border-color,background-color] duration-[350ms] hover:-translate-y-0.5 hover:border-[var(--emerald)] hover:bg-[#f2f6f2] sm:w-fit"
           >

@@ -21,7 +21,7 @@ type MobileMenuProps = {
 };
 
 const mobileLinks = [
-  ["Banquets", "/#banquets"],
+  ["Banquets", "/banquet"],
   ["Contact", "/#contact"],
 ] as const;
 

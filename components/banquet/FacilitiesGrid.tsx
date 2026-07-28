@@ -1,0 +1,7 @@
+"use client";
+
+import { Bed, Car, Gem, Lamp, Monitor, PlugZap, Presentation, Shirt, Sparkles, Speaker, Wifi, Wind } from "lucide-react";
+import { motion } from "framer-motion";
+
+const facilities=[[Gem,"Luxury Interiors"],[Lamp,"Professional Lighting"],[Speaker,"Premium Sound System"],[Wind,"Air Conditioned Hall"],[Presentation,"Projector & Screen"],[PlugZap,"Power Backup"],[Car,"Valet Parking"],[Shirt,"Changing Rooms"],[Bed,"Bridal Suite"],[Wifi,"High-Speed WiFi"],[Sparkles,"Event Support"],[Monitor,"Modern Washrooms"]] as const;
+export function FacilitiesGrid(){return <section aria-labelledby="facilities-title" className="bg-[#173c2b] px-6 py-24 text-white sm:px-10 lg:py-32"><div className="mx-auto max-w-[1280px]"><div className="text-center"><p className="text-[10px] font-semibold uppercase tracking-[.4em] text-[#d6c087]">Event Facilities</p><h2 id="facilities-title" className="mt-5 font-[family-name:var(--font-cormorant)] text-[clamp(2.7rem,5vw,4.2rem)] font-medium">Everything your occasion needs</h2></div><div className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">{facilities.map(([Icon,label],i)=><motion.div key={label} initial={{opacity:0,y:16}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:i*.04}} className="rounded-[18px] border border-white/10 bg-white/[.055] p-6 text-center transition hover:-translate-y-1 hover:border-[#d6c087]/35"><Icon size={23} className="mx-auto text-[#d6c087]"/><p className="mt-4 text-[10px] leading-5 text-white/72">{label}</p></motion.div>)}</div></div></section>}
