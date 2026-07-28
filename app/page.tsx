@@ -1,6 +1,7 @@
 import { AboutPreview } from "@/components/about/AboutPreview";
 import { BanquetPreview } from "@/components/banquet/BanquetPreview";
 import { BookingCTA } from "@/components/booking/BookingCTA";
+import { Footer } from "@/components/footer/Footer";
 import { Hero } from "@/components/hero/Hero";
 import { HotelsSection } from "@/components/hotels/HotelsSection";
 import { Navbar } from "@/components/navbar/Navbar";
@@ -16,6 +17,7 @@ export default function Home() {
         <BanquetPreview />
         <BookingCTA />
       </main>
+      <Footer />
     </>
   );
 }
