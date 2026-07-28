@@ -2,10 +2,10 @@ import Link from "next/link";
 
 const links = [
   ["Home", "/"],
-  ["About", "/about"],
-  ["Hotels", "/hotels"],
-  ["Banquets", "/banquets"],
-  ["Contact", "/contact"],
+  ["About", "/#about"],
+  ["Hotels", "/#hotels"],
+  ["Banquets", "/#banquets"],
+  ["Contact", "/#contact"],
 ] as const;
 
 export function QuickLinks() {

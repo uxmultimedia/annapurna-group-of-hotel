@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -9,6 +8,7 @@ import {
   UsersRound,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { SafeImage } from "@/components/ui/SafeImage";
 import { CapacityCard } from "./CapacityCard";
 import { EventFeatures } from "./EventFeatures";
 
@@ -40,9 +40,10 @@ export function BanquetCard({ venue }: { venue: BanquetVenue }) {
           venue.reverse ? "lg:order-2" : ""
         }`}
       >
-        <Image
+        <SafeImage
           src={venue.image}
           alt={`${venue.name} prepared for an elegant celebration`}
+          fallbackLabel={venue.name}
           fill
           sizes="(max-width: 1023px) 100vw, 60vw"
           className="object-cover transition-transform duration-[900ms] ease-out group-hover/image:scale-[1.05]"

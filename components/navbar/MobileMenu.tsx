@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import {
   ArrowRight,
   ChevronDown,
@@ -12,8 +11,9 @@ import {
   X,
 } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { hotels } from "./HotelsDropdown";
+import BrandLogo from "@/components/ui/BrandLogo";
 
 type MobileMenuProps = {
   open: boolean;
@@ -21,12 +21,14 @@ type MobileMenuProps = {
 };
 
 const mobileLinks = [
-  ["Banquets", "/banquets"],
-  ["Contact", "/contact"],
+  ["Banquets", "/#banquets"],
+  ["Contact", "/#contact"],
 ] as const;
 
 export function MobileMenu({ open, onClose }: MobileMenuProps) {
   const [hotelsOpen, setHotelsOpen] = useState(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -37,17 +39,42 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
 
   useEffect(() => {
     if (!open) return;
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    closeButtonRef.current?.focus();
+    const handleKeyboard = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onClose();
+        return;
+      }
+      if (event.key !== "Tab" || !dialogRef.current) return;
+      const focusable = Array.from(
+        dialogRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
-    window.addEventListener("keydown", closeOnEscape);
-    return () => window.removeEventListener("keydown", closeOnEscape);
+    window.addEventListener("keydown", handleKeyboard);
+    return () => {
+      window.removeEventListener("keydown", handleKeyboard);
+      previouslyFocused?.focus();
+    };
   }, [open, onClose]);
 
   return (
     <AnimatePresence>
       {open && (
         <motion.div
+          ref={dialogRef}
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
@@ -66,15 +93,10 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           >
             <div className="flex items-center justify-between border-b border-[#193f2e]/12 pb-5">
               <Link href="/" onClick={onClose} aria-label="Annapurna Group of Hotels, home">
-                <Image
-                  src="/images/logo/logo.png"
-                  alt="Annapurna Group of Hotels"
-                  width={204}
-                  height={48}
-                  className="h-[48px] w-auto object-contain"
-                />
+                <BrandLogo imageClassName="h-[48px] w-auto object-contain" />
               </Link>
               <button
+                ref={closeButtonRef}
                 type="button"
                 onClick={onClose}
                 aria-label="Close navigation menu"
@@ -86,7 +108,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
 
             <nav aria-label="Mobile primary navigation" className="flex-1 py-8">
               <Link
-                href="/about"
+                href="/#about"
                 onClick={onClose}
                 className="block border-b border-[#193f2e]/10 py-4 font-[family-name:var(--font-cormorant)] text-[clamp(2rem,8vw,3rem)] font-medium leading-none text-[#173c2b]"
               >
@@ -145,7 +167,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
 
             <div className="border-t border-[#193f2e]/12 pt-6">
               <Link
-                href="/book"
+                href="/#booking"
                 onClick={onClose}
                 className="flex h-13 w-full items-center justify-center gap-2 rounded-full bg-[var(--emerald)] px-6 text-[12px] font-semibold tracking-[0.09em] text-white shadow-[0_10px_26px_rgba(15,104,71,0.22)]"
               >

@@ -14,8 +14,37 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Annapurna Group of Hotels",
-  description: "Premium business hospitality in Bhopal.",
+  metadataBase: new URL(
+    "https://annapurna-hotels-navbar.shrisatyasai25.chatgpt.site",
+  ),
+  title: {
+    default: "Annapurna Group of Hotels | Premium Hotels in Bhopal",
+    template: "%s | Annapurna Group of Hotels",
+  },
+  description:
+    "Discover six thoughtfully managed Annapurna hotels in Bhopal for business travel, family stays, celebrations and comfortable city visits.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Annapurna Group of Hotels | Premium Hotels in Bhopal",
+    description:
+      "Warm hospitality, modern comfort and six trusted hotels across Bhopal since 2018.",
+    url: "/",
+    siteName: "Annapurna Group of Hotels",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Annapurna Group of Hotels",
+    description:
+      "Six thoughtfully managed hotels offering warm, modern hospitality across Bhopal.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

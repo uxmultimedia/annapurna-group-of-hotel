@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, Menu, Phone } from "lucide-react";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { HotelsDropdown } from "./HotelsDropdown";
 import { MobileMenu } from "./MobileMenu";
+import BrandLogo from "@/components/ui/BrandLogo";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -37,13 +37,9 @@ export function Navbar() {
             aria-label="Annapurna Group of Hotels, home"
             className="justify-self-start rounded-sm"
           >
-            <Image
-              src="/images/logo/logo.png"
-              alt="Annapurna Group of Hotels"
-              width={220}
-              height={52}
+            <BrandLogo
               priority
-              className={`w-auto object-contain transition-[height] duration-300 ${
+              imageClassName={`w-auto object-contain transition-[height] duration-300 ${
                 scrolled ? "h-[44px]" : "h-[52px]"
               }`}
             />
@@ -53,17 +49,17 @@ export function Navbar() {
             aria-label="Primary navigation"
             className="hidden items-center gap-12 lg:flex"
           >
-            <NavLink label="About" href="/about" active={pathname === "/about"} light={!scrolled} />
+            <NavLink label="About" href="/#about" active={pathname === "/about"} light={!scrolled} />
             <HotelsDropdown active={pathname.startsWith("/hotels")} light={!scrolled} />
             <NavLink
               label="Banquets"
-              href="/banquets"
+              href="/#banquets"
               active={pathname === "/banquets"}
               light={!scrolled}
             />
             <NavLink
               label="Contact"
-              href="/contact"
+              href="/#contact"
               active={pathname === "/contact"}
               light={!scrolled}
             />
@@ -85,7 +81,7 @@ export function Navbar() {
               <span className="hidden xl:inline">75665 00040</span>
             </a>
             <Link
-              href="/book"
+              href="/#booking"
               className="group flex h-11 items-center gap-0 overflow-hidden rounded-full bg-[var(--emerald)] px-5 text-[11px] font-semibold tracking-[0.08em] text-white shadow-[0_8px_22px_rgba(15,104,71,0.2)] transition-[background-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-[var(--emerald-deep)] hover:shadow-[0_11px_28px_rgba(15,104,71,0.28)]"
             >
               Book Your Stay

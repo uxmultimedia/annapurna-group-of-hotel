@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import {
   BedDouble,
   HeartHandshake,
@@ -8,6 +7,7 @@ import {
   Wifi,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { SafeImage } from "@/components/ui/SafeImage";
 import { AboutCTA } from "./AboutCTA";
 import { AboutStats } from "./AboutStats";
 import { FeatureCard } from "./FeatureCard";
@@ -43,6 +43,7 @@ const fadeUp = {
 export function AboutPreview() {
   return (
     <section
+      id="about"
       aria-labelledby="about-preview-heading"
       className="relative overflow-hidden bg-white px-6 py-[110px] sm:px-10 lg:py-[140px]"
     >
@@ -59,9 +60,10 @@ export function AboutPreview() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="relative mx-auto aspect-[4/5] w-full max-w-[560px] overflow-hidden rounded-[28px] bg-[#e5e9e5] shadow-[0_30px_80px_rgba(26,52,40,0.15)] lg:mx-0"
         >
-          <Image
+          <SafeImage
             src="/images/about/about-preview.webp"
             alt="A warm and comfortable guest experience at Annapurna Group of Hotels"
+            fallbackLabel="Annapurna hospitality"
             fill
             sizes="(max-width: 1023px) 100vw, 45vw"
             className="object-cover"

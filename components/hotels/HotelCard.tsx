@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
+import { SafeImage } from "@/components/ui/SafeImage";
 import { FeatureChip } from "./FeatureChip";
 
 export type Hotel = {
@@ -34,9 +34,10 @@ export function HotelCard({ hotel }: { hotel: Hotel }) {
       }`}
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-[#e4e9e4]">
-        <Image
+        <SafeImage
           src={hotel.image}
           alt={`${hotel.name} exterior and hospitality setting`}
+          fallbackLabel={hotel.name}
           fill
           sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
           className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.08] group-focus-visible:scale-[1.08]"

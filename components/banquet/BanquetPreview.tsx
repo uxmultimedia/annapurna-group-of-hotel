@@ -36,6 +36,7 @@ const venues: readonly BanquetVenue[] = [
 export function BanquetPreview() {
   return (
     <section
+      id="banquets"
       aria-labelledby="banquet-heading"
       className="relative overflow-hidden bg-[#faf8f4] px-6 py-[115px] sm:px-10 lg:py-[150px]"
     >

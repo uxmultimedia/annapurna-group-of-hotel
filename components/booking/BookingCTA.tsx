@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import {
   CalendarDays,
   MessageCircle,
   Phone,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { SafeImage } from "@/components/ui/SafeImage";
 import { BookingCard, type BookingOption } from "./BookingCard";
 import { TrustMessage } from "./TrustMessage";
 
@@ -32,7 +32,7 @@ const bookingOptions: readonly BookingOption[] = [
     title: "Online Booking",
     detail: "Reserve Your Stay",
     icon: CalendarDays,
-    href: "/book",
+    href: "/#booking",
     buttonLabel: "Book Now",
     ariaLabel: "Book your stay online with Annapurna Group of Hotels",
   },
@@ -41,12 +41,14 @@ const bookingOptions: readonly BookingOption[] = [
 export function BookingCTA() {
   return (
     <section
+      id="booking"
       aria-labelledby="booking-cta-heading"
       className="relative isolate flex items-center overflow-hidden px-6 py-[110px] sm:px-10 lg:min-h-[650px]"
     >
-      <Image
+      <SafeImage
         src="/images/home/booking-background.webp"
         alt=""
+        fallbackClassName="-z-30 bg-[#173d2d]"
         fill
         sizes="100vw"
         className="-z-30 object-cover"

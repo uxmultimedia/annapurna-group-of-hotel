@@ -1,10 +1,10 @@
-import Image from "next/image";
 import {
   Facebook,
   Instagram,
   Linkedin,
   Youtube,
 } from "lucide-react";
+import BrandLogo from "@/components/ui/BrandLogo";
 
 const socials = [
   { label: "Facebook", href: "#", icon: Facebook },
@@ -16,12 +16,10 @@ const socials = [
 export function FooterBrand() {
   return (
     <div>
-      <Image
-        src="/images/logo/logo-white.png"
-        alt="Annapurna Group of Hotels"
-        width={250}
-        height={60}
-        className="mx-auto h-[60px] w-auto object-contain md:mx-0"
+      <BrandLogo
+        variant="light"
+        className="mx-auto md:mx-0"
+        imageClassName="h-[60px] w-auto object-contain"
       />
       <h2 className="mt-5 font-[family-name:var(--font-cormorant)] text-[25px] font-medium text-white">
         Annapurna Group of Hotels

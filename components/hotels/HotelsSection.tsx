@@ -58,6 +58,7 @@ const hotels: readonly Hotel[] = [
 export function HotelsSection() {
   return (
     <section
+      id="hotels"
       aria-labelledby="hotels-heading"
       className="relative overflow-hidden bg-[#faf8f4] px-6 py-[110px] sm:px-10 lg:py-[140px]"
     >

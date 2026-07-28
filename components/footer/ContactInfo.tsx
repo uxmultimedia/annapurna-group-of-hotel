@@ -52,7 +52,7 @@ export function ContactInfo() {
         </p>
       </address>
       <Link
-        href="/book"
+        href="/#booking"
         aria-label="Book your stay with Annapurna Group of Hotels"
         className="group/book mt-7 flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[var(--emerald)] px-6 text-[10px] font-semibold uppercase tracking-[0.1em] text-white shadow-[0_10px_26px_rgba(0,0,0,0.18)] transition-[transform,background-color,box-shadow] duration-[350ms] hover:-translate-y-0.5 hover:bg-[#0b583c] hover:shadow-[0_15px_32px_rgba(0,0,0,0.28)] sm:w-fit max-md:mx-auto"
       >

@@ -2,20 +2,10 @@
 
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export function HeroVideo() {
-  const [videoReady, setVideoReady] = useState(false);
-
-  useEffect(() => {
-    const showVideo = () => setVideoReady(true);
-    if ("requestIdleCallback" in window) {
-      const idleId = window.requestIdleCallback(showVideo, { timeout: 900 });
-      return () => window.cancelIdleCallback(idleId);
-    }
-    const timeoutId = window.setTimeout(showVideo, 1);
-    return () => window.clearTimeout(timeoutId);
-  }, []);
+  const [videoFailed, setVideoFailed] = useState(false);
 
   return (
     <motion.div
@@ -24,14 +14,15 @@ export function HeroVideo() {
       transition={{ duration: 1.2, ease: "easeOut" }}
       className="relative aspect-video min-h-0 overflow-hidden rounded-[26px] bg-[#dfe6df] shadow-[0_32px_90px_rgba(20,45,34,0.18)] lg:aspect-auto lg:min-h-[640px]"
     >
-      {videoReady && (
+      {!videoFailed ? (
         <video
           autoPlay
           muted
           loop
           playsInline
-          preload="none"
+          preload="metadata"
           poster="/images/hero/hero-poster.jpg"
+          onError={() => setVideoFailed(true)}
           aria-label="A calm view of the Annapurna Group of Hotels hospitality experience"
           className="absolute inset-0 size-full object-cover"
         >
@@ -39,6 +30,12 @@ export function HeroVideo() {
           Your browser does not support the hotel experience video. Annapurna
           Group of Hotels offers premium business and family stays in Bhopal.
         </video>
+      ) : (
+        <div
+          role="img"
+          aria-label="Annapurna Group of Hotels hospitality experience"
+          className="absolute inset-0 bg-[#dfe6df]"
+        />
       )}
 
       <div
