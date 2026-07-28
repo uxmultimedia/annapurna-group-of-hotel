@@ -11,7 +11,7 @@ import BrandLogo from "@/components/ui/BrandLogo";
 
 export function Navbar() {
   const pathname = usePathname();
-  const darkHero = pathname === "/about";
+  const darkHero = pathname === "/about" || pathname.startsWith("/hotels/");
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
