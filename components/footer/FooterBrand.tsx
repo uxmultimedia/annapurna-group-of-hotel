@@ -7,10 +7,10 @@ import {
 import BrandLogo from "@/components/ui/BrandLogo";
 
 const socials = [
-  { label: "Facebook", href: "#", icon: Facebook },
-  { label: "Instagram", href: "#", icon: Instagram },
-  { label: "LinkedIn", href: "#", icon: Linkedin },
-  { label: "YouTube", href: "#", icon: Youtube },
+  { label: "Facebook", icon: Facebook },
+  { label: "Instagram", icon: Instagram },
+  { label: "LinkedIn", icon: Linkedin },
+  { label: "YouTube", icon: Youtube },
 ] as const;
 
 export function FooterBrand() {
@@ -33,15 +33,17 @@ export function FooterBrand() {
         aria-label="Annapurna Group social media"
         className="mt-6 flex items-center gap-5 max-md:justify-center"
       >
-        {socials.map(({ label, href, icon: Icon }) => (
-          <a
+        {socials.map(({ label, icon: Icon }) => (
+          <button
             key={label}
-            href={href}
-            aria-label={`Follow Annapurna Group on ${label}`}
+            type="button"
+            disabled
+            aria-label={`${label} profile coming soon`}
+            title="Social profile coming soon"
             className="text-white/65 transition-[color,transform] duration-300 hover:scale-[1.08] hover:text-[#4faf7b]"
           >
             <Icon aria-hidden="true" size={18} strokeWidth={1.45} />
-          </a>
+          </button>
         ))}
       </div>
     </div>

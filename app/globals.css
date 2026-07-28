@@ -35,6 +35,28 @@ body {
   overflow-x: clip;
 }
 
+main {
+  scroll-margin-top: 80px;
+  animation: page-enter 360ms ease-out both;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.997);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
 ::selection {
   background: #d8e7dc;
   color: #123526;
@@ -73,5 +95,9 @@ a {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  main {
+    animation: none !important;
   }
 }

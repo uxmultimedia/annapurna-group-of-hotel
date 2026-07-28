@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
+import { SiteExperience } from "@/components/ui/SiteExperience";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -63,6 +64,13 @@ export default function RootLayout({
         />
       </head>
       <body className={`${manrope.variable} ${cormorant.variable} antialiased`}>
+        <a
+          href="#main-content"
+          className="fixed left-4 top-3 z-[300] -translate-y-20 rounded-full bg-white px-5 py-3 text-xs font-semibold text-[#173c2b] shadow-xl transition-transform focus:translate-y-0"
+        >
+          Skip to main content
+        </a>
+        <SiteExperience />
         {children}
       </body>
     </html>

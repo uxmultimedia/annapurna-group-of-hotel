@@ -10,6 +10,7 @@ import { HotelFAQ } from "@/components/hotel/HotelFAQ";
 import { HotelHero } from "@/components/hotel/HotelHero";
 import { HotelOverview } from "@/components/hotel/HotelOverview";
 import { LocationMap } from "@/components/hotel/LocationMap";
+import { MobileBookingBar } from "@/components/hotel/MobileBookingBar";
 import { NearbyPlaces } from "@/components/hotel/NearbyPlaces";
 import { RelatedHotels } from "@/components/hotel/RelatedHotels";
 import { RestaurantSection } from "@/components/hotel/RestaurantSection";
@@ -88,7 +89,7 @@ export default async function HotelPage({ params }: PageProps) {
     <>
       <Navbar />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
-      <main aria-label={`${hotel.name} hotel details`}>
+      <main id="main-content" aria-label={`${hotel.name} hotel details`}>
         <HotelHero hotel={hotel} />
         <BookingWidget hotelName={hotel.name} />
         <HotelOverview hotel={hotel} />
@@ -104,6 +105,7 @@ export default async function HotelPage({ params }: PageProps) {
         <RelatedHotels hotels={related} />
         <HotelCTA hotel={hotel} />
       </main>
+      <MobileBookingBar hotel={hotel} />
       <Footer />
     </>
   );

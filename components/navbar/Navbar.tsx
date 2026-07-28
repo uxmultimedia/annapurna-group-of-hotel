@@ -19,6 +19,10 @@ export function Navbar() {
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const solid =
+    scrolled ||
+    pathname === "/hotels" ||
+    ["/privacy", "/terms", "/sitemap"].includes(pathname);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 18);
@@ -28,10 +32,10 @@ export function Navbar() {
     <>
       <motion.header
         initial={{ opacity: 0 }}
-        animate={{ height: scrolled ? 76 : 92, opacity: 1 }}
+        animate={{ height: solid ? 76 : 92, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
         className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,box-shadow,backdrop-filter] duration-300 ${
-          scrolled
+          solid
             ? "border-[#183f2d]/8 bg-[#f8f3e9]/90 shadow-[0_7px_30px_rgba(24,55,41,0.08)] backdrop-blur-xl"
             : "border-transparent bg-transparent"
         }`}
@@ -44,9 +48,9 @@ export function Navbar() {
           >
             <BrandLogo
               priority
-              variant={darkHero && !scrolled ? "light" : "dark"}
+              variant={darkHero && !solid ? "light" : "dark"}
               imageClassName={`w-auto object-contain transition-[height] duration-300 ${
-                scrolled ? "h-[44px]" : "h-[52px]"
+                solid ? "h-[44px]" : "h-[52px]"
               }`}
             />
           </Link>
@@ -55,19 +59,19 @@ export function Navbar() {
             aria-label="Primary navigation"
             className="hidden items-center gap-12 lg:flex"
           >
-            <NavLink label="About" href="/about" active={pathname === "/about"} light={!scrolled} />
-            <HotelsDropdown active={pathname.startsWith("/hotels")} light={!scrolled} />
+            <NavLink label="About" href="/about" active={pathname === "/about"} light={!solid} />
+            <HotelsDropdown active={pathname.startsWith("/hotels")} light={!solid} />
             <NavLink
               label="Banquets"
               href="/banquet"
               active={pathname === "/banquet"}
-              light={!scrolled}
+              light={!solid}
             />
             <NavLink
               label="Contact"
               href="/contact"
               active={pathname === "/contact"}
-              light={!scrolled}
+              light={!solid}
             />
           </nav>
 
@@ -76,11 +80,11 @@ export function Navbar() {
               href="tel:+917566500040"
               aria-label="Call Annapurna Group of Hotels at 75665 00040"
               className={`group flex items-center gap-2.5 text-[12px] font-semibold tracking-[0.055em] transition-colors hover:text-[#c8ab6b] ${
-                scrolled ? "text-[#264638]" : "text-white"
+                solid ? "text-[#264638]" : "text-white"
               }`}
             >
               <span className={`grid size-8 place-items-center rounded-full border transition-colors ${
-                scrolled ? "border-[#173c2b]/13" : "border-white/25"
+                solid ? "border-[#173c2b]/13" : "border-white/25"
               }`}>
                 <Phone size={14} strokeWidth={1.7} />
               </span>
@@ -103,7 +107,7 @@ export function Navbar() {
             aria-label="Open navigation menu"
             aria-expanded={mobileOpen}
             className={`grid size-11 justify-self-end place-items-center rounded-full border transition-colors hover:bg-white/10 lg:hidden ${
-              darkHero && !scrolled
+              darkHero && !solid
                 ? "border-white/30 text-white"
                 : "border-[#173c2b]/15 text-[#173c2b]"
             }`}

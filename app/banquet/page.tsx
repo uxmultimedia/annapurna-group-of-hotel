@@ -57,7 +57,7 @@ export default function BanquetPage() {
     <>
       <Navbar />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
-      <main aria-label="Annapurna banquet and event venues">
+      <main id="main-content" aria-label="Annapurna banquet and event venues">
         <BanquetHero />
         <EventCategories />
         <FeaturedVenues venues={banquetVenues} />

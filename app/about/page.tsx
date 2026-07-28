@@ -60,7 +60,7 @@ export default function AboutPage() {
           __html: JSON.stringify(aboutSchema).replace(/</g, "\\u003c"),
         }}
       />
-      <main aria-label="About Annapurna Group of Hotels">
+      <main id="main-content" aria-label="About Annapurna Group of Hotels">
         <AboutHero />
         <OurStory />
         <JourneyTimeline />

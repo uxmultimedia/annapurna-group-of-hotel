@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const hotels = [
   ["Hotel Arch Manor", "Refined stays in the heart of Bhopal."],
@@ -21,9 +21,20 @@ type HotelsDropdownProps = {
 
 export function HotelsDropdown({ active = false, light = false }: HotelsDropdownProps) {
   const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const closeOutside = (event: PointerEvent) => {
+      if (!containerRef.current?.contains(event.target as Node)) setOpen(false);
+    };
+    document.addEventListener("pointerdown", closeOutside);
+    return () => document.removeEventListener("pointerdown", closeOutside);
+  }, [open]);
 
   return (
     <div
+      ref={containerRef}
       className="relative"
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
@@ -83,7 +94,7 @@ export function HotelsDropdown({ active = false, light = false }: HotelsDropdown
                     Six distinct stays. One standard of care.
                   </p>
                 </div>
-                <Link href="/#hotels" className="text-[10px] font-semibold uppercase tracking-[0.11em] text-[var(--emerald)]">
+                <Link href="/hotels" className="text-[10px] font-semibold uppercase tracking-[0.11em] text-[var(--emerald)]">
                   View all hotels
                 </Link>
               </div>

@@ -60,7 +60,7 @@ export default function ContactPage() {
     <>
       <Navbar />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
-      <main aria-label="Contact Annapurna Group of Hotels">
+      <main id="main-content" aria-label="Contact Annapurna Group of Hotels">
         <ContactHero />
         <ContactCards />
         <ContactForm />

@@ -40,7 +40,7 @@ export default function Home() {
           __html: JSON.stringify(hotelSchema).replace(/</g, "\\u003c"),
         }}
       />
-      <main aria-label="Page content">
+      <main id="main-content" aria-label="Page content">
         <Hero />
         <HotelsSection />
         <AboutPreview />

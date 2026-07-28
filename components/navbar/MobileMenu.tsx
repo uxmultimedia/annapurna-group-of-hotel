@@ -182,14 +182,16 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                 </a>
                 <div aria-label="Social links" className="flex items-center gap-2">
                   {[Instagram, Facebook, Linkedin].map((Icon, index) => (
-                    <a
+                    <button
                       key={index}
-                      href="#"
-                      aria-label={["Instagram", "Facebook", "LinkedIn"][index]}
+                      type="button"
+                      disabled
+                      aria-label={`${["Instagram", "Facebook", "LinkedIn"][index]} coming soon`}
+                      title="Social profile coming soon"
                       className="grid size-9 place-items-center rounded-full border border-[#173c2b]/15 text-[#234535]"
                     >
                       <Icon size={15} strokeWidth={1.6} />
-                    </a>
+                    </button>
                   ))}
                 </div>
               </div>
