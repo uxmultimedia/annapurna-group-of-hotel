@@ -108,7 +108,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
 
             <nav aria-label="Mobile primary navigation" className="flex-1 py-8">
               <Link
-                href="/#about"
+                href="/about"
                 onClick={onClose}
                 className="block border-b border-[#193f2e]/10 py-4 font-[family-name:var(--font-cormorant)] text-[clamp(2rem,8vw,3rem)] font-medium leading-none text-[#173c2b]"
               >

@@ -11,6 +11,7 @@ import BrandLogo from "@/components/ui/BrandLogo";
 
 export function Navbar() {
   const pathname = usePathname();
+  const darkHero = pathname === "/about";
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -39,6 +40,7 @@ export function Navbar() {
           >
             <BrandLogo
               priority
+              variant={darkHero && !scrolled ? "light" : "dark"}
               imageClassName={`w-auto object-contain transition-[height] duration-300 ${
                 scrolled ? "h-[44px]" : "h-[52px]"
               }`}
@@ -49,7 +51,7 @@ export function Navbar() {
             aria-label="Primary navigation"
             className="hidden items-center gap-12 lg:flex"
           >
-            <NavLink label="About" href="/#about" active={pathname === "/about"} light={!scrolled} />
+            <NavLink label="About" href="/about" active={pathname === "/about"} light={!scrolled} />
             <HotelsDropdown active={pathname.startsWith("/hotels")} light={!scrolled} />
             <NavLink
               label="Banquets"
@@ -96,7 +98,11 @@ export function Navbar() {
             onClick={() => setMobileOpen(true)}
             aria-label="Open navigation menu"
             aria-expanded={mobileOpen}
-            className="grid size-11 justify-self-end place-items-center rounded-full border border-[#173c2b]/15 text-[#173c2b] transition-colors hover:bg-white/60 lg:hidden"
+            className={`grid size-11 justify-self-end place-items-center rounded-full border transition-colors hover:bg-white/10 lg:hidden ${
+              darkHero && !scrolled
+                ? "border-white/30 text-white"
+                : "border-[#173c2b]/15 text-[#173c2b]"
+            }`}
           >
             <Menu size={21} strokeWidth={1.6} />
           </button>
