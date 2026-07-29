@@ -59,19 +59,19 @@ export function Navbar() {
             aria-label="Primary navigation"
             className="hidden items-center gap-12 lg:flex"
           >
-            <NavLink label="About" href="/about" active={pathname === "/about"} light={!solid} />
-            <HotelsDropdown active={pathname.startsWith("/hotels")} light={!solid} />
+            <NavLink label="About" href="/about" active={pathname === "/about"} light={darkHero && !solid} />
+            <HotelsDropdown active={pathname.startsWith("/hotels")} light={darkHero && !solid} />
             <NavLink
               label="Banquets"
               href="/banquet"
               active={pathname === "/banquet"}
-              light={!solid}
+              light={darkHero && !solid}
             />
             <NavLink
               label="Contact"
               href="/contact"
               active={pathname === "/contact"}
-              light={!solid}
+              light={darkHero && !solid}
             />
           </nav>
 
@@ -80,11 +80,11 @@ export function Navbar() {
               href="tel:+917566500040"
               aria-label="Call Annapurna Group of Hotels at 75665 00040"
               className={`group flex items-center gap-2.5 text-[12px] font-semibold tracking-[0.055em] transition-colors hover:text-[#c8ab6b] ${
-                solid ? "text-[#264638]" : "text-white"
+                darkHero && !solid ? "text-white" : "text-[#264638]"
               }`}
             >
               <span className={`grid size-8 place-items-center rounded-full border transition-colors ${
-                solid ? "border-[#173c2b]/13" : "border-white/25"
+                darkHero && !solid ? "border-white/25" : "border-[#173c2b]/13"
               }`}>
                 <Phone size={14} strokeWidth={1.7} />
               </span>
@@ -106,7 +106,7 @@ export function Navbar() {
             onClick={() => setMobileOpen(true)}
             aria-label="Open navigation menu"
             aria-expanded={mobileOpen}
-            className={`grid size-11 justify-self-end place-items-center rounded-full border transition-colors hover:bg-white/10 lg:hidden ${
+            className={`col-start-3 row-start-1 grid size-11 justify-self-end place-items-center rounded-full border transition-colors hover:bg-white/10 lg:hidden ${
               darkHero && !solid
                 ? "border-white/30 text-white"
                 : "border-[#173c2b]/15 text-[#173c2b]"
