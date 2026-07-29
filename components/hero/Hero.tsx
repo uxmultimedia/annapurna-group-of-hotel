@@ -1,9 +1,5 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { HeroContent } from "./HeroContent";
 import { HeroVideo } from "./HeroVideo";
-import { ScrollIndicator } from "./ScrollIndicator";
 
 export function Hero() {
   return (
@@ -20,14 +16,6 @@ export function Hero() {
         <HeroContent />
         <HeroVideo />
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 1.3, ease: "easeOut" }}
-      >
-        <ScrollIndicator />
-      </motion.div>
     </section>
   );
 }
