@@ -24,7 +24,7 @@ export function HeroVideo() {
           poster="/images/hero/hero-poster.jpg"
           onError={() => setVideoFailed(true)}
           aria-label="A calm view of the Annapurna Group of Hotels hospitality experience"
-          className="absolute inset-0 size-full object-cover"
+          className="absolute inset-x-0 top-0 h-[105.263%] w-full object-cover object-top"
         >
           <source src="/videos/hero/hero.mp4" type="video/mp4" />
           Your browser does not support the hotel experience video. Annapurna
