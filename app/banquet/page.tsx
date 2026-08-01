@@ -24,11 +24,13 @@ export const metadata: Metadata = {
     description: "Elegant Bhopal venues, thoughtful catering and attentive event support for meaningful celebrations.",
     url: "/banquet",
     type: "website",
+    images: [{ url: "/images/logo/logo.png", width: 1254, height: 1254, alt: "Annapurna Group of Hotels logo" }],
   },
   twitter: {
     card: "summary",
     title: "Annapurna Banquets & Events",
     description: "Premium venues for weddings, corporate events and private celebrations in Bhopal.",
+    images: ["/images/logo/logo.png"],
   },
 };
 
@@ -48,7 +50,7 @@ const schema = [
     description: venue.description,
     maximumAttendeeCapacity: Number.parseInt(venue.capacity.replace(/\D/g, ""), 10),
     address: { "@type": "PostalAddress", addressLocality: "Bhopal", addressRegion: "Madhya Pradesh", addressCountry: "IN" },
-    telephone: "+91-75665-00040",
+    telephone: "+91 91791 91110",
   })),
 ];
 

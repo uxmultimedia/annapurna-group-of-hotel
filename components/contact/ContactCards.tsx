@@ -4,7 +4,7 @@ import { Clock3, Mail, MapPin, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 
 const cards = [
-  { title: "Phone", value: "75665 00040", href: "tel:+917566500040", icon: Phone },
+  { title: "Phone", value: "+91 91791 91110", href: "tel:+919179191110", icon: Phone },
   { title: "Email", value: "info@annapurnagroupofhotels.com", href: "mailto:info@annapurnagroupofhotels.com", icon: Mail },
   { title: "Location", value: "Bhopal, Madhya Pradesh", icon: MapPin },
   { title: "Working Hours", value: "Open 24×7", icon: Clock3 },

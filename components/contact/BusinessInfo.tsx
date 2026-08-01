@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const channels = [
   { title: "Reservations", text: "Room guidance and booking support across all six hotels.", cta: "Explore Hotels", href: "/#hotels", icon: CalendarCheck },
-  { title: "24×7 Guest Support", text: "Responsive assistance before, during and after your stay.", cta: "Call Support", href: "tel:+917566500040", icon: Headphones },
+  { title: "24×7 Guest Support", text: "Responsive assistance before, during and after your stay.", cta: "Call Support", href: "tel:+919179191110", icon: Headphones },
   { title: "Corporate Bookings", text: "Coordinated stays for teams, projects and regular travel.", cta: "Contact Team", href: "#contact-form", icon: BriefcaseBusiness },
   { title: "Banquet Enquiries", text: "Venue visits, menus and tailored celebration planning.", cta: "View Banquets", href: "/banquet", icon: Building2 },
   { title: "Business Partnerships", text: "Professional conversations for aligned opportunities.", cta: "Start a Conversation", href: "mailto:info@annapurnagroupofhotels.com?subject=Business%20Partnership", icon: Handshake },

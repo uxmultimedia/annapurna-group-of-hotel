@@ -7,6 +7,7 @@ import {
   Facebook,
   Instagram,
   Linkedin,
+  MessageCircle,
   Phone,
   X,
 } from "lucide-react";
@@ -14,6 +15,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { hotels } from "./HotelsDropdown";
 import BrandLogo from "@/components/ui/BrandLogo";
+import { inquiryPhoneDisplay, inquiryPhoneHref, whatsappChatUrl } from "@/data/contact";
 
 type MobileMenuProps = {
   open: boolean;
@@ -166,6 +168,16 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             </nav>
 
             <div className="border-t border-[#193f2e]/12 pt-6">
+              <a
+                href={whatsappChatUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={onClose}
+                aria-label="Chat with Annapurna Group of Hotels on WhatsApp"
+                className="mb-3 flex h-13 w-full items-center justify-center gap-2 rounded-full bg-[#d66a2c] px-6 text-[12px] font-semibold tracking-[0.09em] text-white shadow-[0_10px_26px_rgba(214,106,44,0.25)] transition-[transform,background-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-[#bd5720] hover:shadow-[0_13px_30px_rgba(214,106,44,0.36)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f29a62]"
+              >
+                <MessageCircle aria-hidden="true" size={16} /> Chat Now
+              </a>
               <Link
                 href="/#booking"
                 onClick={onClose}
@@ -173,12 +185,12 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               >
                 Book Your Stay <ArrowRight size={15} />
               </Link>
-              <div className="mt-5 flex items-center justify-between">
+              <div className="mt-5 flex flex-col items-center justify-between gap-4 sm:flex-row">
                 <a
-                  href="tel:+917566500040"
+                  href={inquiryPhoneHref}
                   className="flex items-center gap-2 text-[12px] font-semibold tracking-[0.05em] text-[#234535]"
                 >
-                  <Phone size={15} strokeWidth={1.7} /> 75665 00040
+                  <Phone size={15} strokeWidth={1.7} /> {inquiryPhoneDisplay}
                 </a>
                 <div aria-label="Social links" className="flex items-center gap-2">
                   {[Instagram, Facebook, Linkedin].map((Icon, index) => (

@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Menu, Phone } from "lucide-react";
+import { ArrowRight, Menu, MessageCircle, Phone } from "lucide-react";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { HotelsDropdown } from "./HotelsDropdown";
 import { MobileMenu } from "./MobileMenu";
 import BrandLogo from "@/components/ui/BrandLogo";
+import { inquiryPhoneDisplay, inquiryPhoneHref, whatsappChatUrl } from "@/data/contact";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -57,7 +58,7 @@ export function Navbar() {
 
           <nav
             aria-label="Primary navigation"
-            className="hidden items-center gap-12 lg:flex"
+            className="hidden items-center gap-7 lg:flex xl:gap-12"
           >
             <NavLink label="About" href="/about" active={pathname === "/about"} light={darkHero && !solid} />
             <HotelsDropdown active={pathname.startsWith("/hotels")} light={darkHero && !solid} />
@@ -75,10 +76,10 @@ export function Navbar() {
             />
           </nav>
 
-          <div className="hidden items-center justify-self-end gap-5 lg:flex xl:gap-7">
+          <div className="hidden items-center justify-self-end gap-2 lg:flex xl:gap-4">
             <a
-              href="tel:+917566500040"
-              aria-label="Call Annapurna Group of Hotels at 75665 00040"
+              href={inquiryPhoneHref}
+              aria-label={`Call Annapurna Group of Hotels at ${inquiryPhoneDisplay}`}
               className={`group flex items-center gap-2.5 text-[12px] font-semibold tracking-[0.055em] transition-colors hover:text-[#c8ab6b] ${
                 darkHero && !solid ? "text-white" : "text-[#264638]"
               }`}
@@ -88,11 +89,21 @@ export function Navbar() {
               }`}>
                 <Phone size={14} strokeWidth={1.7} />
               </span>
-              <span className="hidden xl:inline">75665 00040</span>
+              <span className="hidden xl:inline">{inquiryPhoneDisplay}</span>
+            </a>
+            <a
+              href={whatsappChatUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chat with Annapurna Group of Hotels on WhatsApp"
+              className="group flex h-11 items-center gap-2 rounded-full bg-[#d66a2c] px-4 text-[11px] font-semibold tracking-[0.08em] text-white shadow-[0_8px_22px_rgba(214,106,44,0.24)] transition-[background-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-[#bd5720] hover:shadow-[0_10px_28px_rgba(214,106,44,0.38)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f29a62] focus-visible:ring-offset-2 xl:px-5"
+            >
+              <MessageCircle aria-hidden="true" size={15} strokeWidth={1.7} />
+              Chat Now
             </a>
             <Link
               href="/#booking"
-              className="group flex h-11 items-center gap-0 overflow-hidden rounded-full bg-[var(--emerald)] px-5 text-[11px] font-semibold tracking-[0.08em] text-white shadow-[0_8px_22px_rgba(15,104,71,0.2)] transition-[background-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-[var(--emerald-deep)] hover:shadow-[0_11px_28px_rgba(15,104,71,0.28)]"
+              className="group flex h-11 items-center gap-0 overflow-hidden rounded-full bg-[var(--emerald)] px-4 text-[11px] font-semibold tracking-[0.08em] text-white shadow-[0_8px_22px_rgba(15,104,71,0.2)] transition-[background-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-[var(--emerald-deep)] hover:shadow-[0_11px_28px_rgba(15,104,71,0.28)] xl:px-5"
             >
               Book Your Stay
               <span className="w-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:ml-2 group-hover:w-4 group-hover:opacity-100">

@@ -19,11 +19,13 @@ export const metadata: Metadata = {
     description: "Speak with our Bhopal hospitality team about rooms, banquets, business stays and guest support.",
     url: "/contact",
     type: "website",
+    images: [{ url: "/images/logo/logo.png", width: 1254, height: 1254, alt: "Annapurna Group of Hotels logo" }],
   },
   twitter: {
     card: "summary",
     title: "Contact Annapurna Group of Hotels",
     description: "Hotel reservations, banquet enquiries and 24×7 guest assistance in Bhopal.",
+    images: ["/images/logo/logo.png"],
   },
 };
 
@@ -42,7 +44,7 @@ const schema = [
     "@id": "https://annapurna-hotels-navbar.shrisatyasai25.chatgpt.site/#organization",
     name: "Annapurna Group of Hotels",
     url: "https://annapurna-hotels-navbar.shrisatyasai25.chatgpt.site",
-    telephone: "+91-75665-00040",
+    telephone: "+91 91791 91110",
     email: "info@annapurnagroupofhotels.com",
     openingHours: "Mo-Su 00:00-23:59",
     address: {

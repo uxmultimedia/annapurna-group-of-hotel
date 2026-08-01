@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
 import { SiteExperience } from "@/components/ui/SiteExperience";
@@ -14,33 +14,49 @@ const cormorant = Cormorant_Garamond({
   weight: ["500", "600"],
 });
 
+const siteUrl = "https://annapurna-hotels-navbar.shrisatyasai25.chatgpt.site";
+const seoTitle = "Annapurna Group of Hotels | Premium Hotels in Bhopal";
+const seoDescription =
+  "Book comfortable and premium stays with Annapurna Group of Hotels. Explore Arch Manor, Mohit Regency, Kamla Regency, Divine Casa, CT Palace and Smriti Star.";
+
+export const viewport: Viewport = {
+  themeColor: "#111111",
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    "https://annapurna-hotels-navbar.shrisatyasai25.chatgpt.site",
-  ),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Annapurna Group of Hotels | Premium Hotels in Bhopal",
+    default: seoTitle,
     template: "%s | Annapurna Group of Hotels",
   },
-  description:
-    "Discover six thoughtfully managed Annapurna hotels in Bhopal for business travel, family stays, celebrations and comfortable city visits.",
+  description: seoDescription,
+  applicationName: "Annapurna Group of Hotels",
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Annapurna Group of Hotels | Premium Hotels in Bhopal",
-    description:
-      "Warm hospitality, modern comfort and six trusted hotels across Bhopal since 2018.",
-    url: "/",
+    title: seoTitle,
+    description: seoDescription,
+    url: siteUrl,
     siteName: "Annapurna Group of Hotels",
     locale: "en_IN",
     type: "website",
+    images: [{ url: "/images/logo/logo.png", width: 1254, height: 1254, alt: "Annapurna Group of Hotels logo" }],
   },
   twitter: {
-    card: "summary",
-    title: "Annapurna Group of Hotels",
-    description:
-      "Six thoughtfully managed hotels offering warm, modern hospitality across Bhopal.",
+    card: "summary_large_image",
+    title: seoTitle,
+    description: seoDescription,
+    images: ["/images/logo/logo.png"],
   },
   robots: {
     index: true,

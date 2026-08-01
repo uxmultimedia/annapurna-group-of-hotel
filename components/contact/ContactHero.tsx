@@ -16,7 +16,7 @@ export function ContactHero() {
         <h1 id="contact-hero-title" className="mt-6 font-[family-name:var(--font-cormorant)] text-[clamp(3.8rem,8vw,7rem)] font-medium leading-[.9] tracking-[-.04em]">We&apos;re Here To Help</h1>
         <p className="mt-7 max-w-[650px] text-[14px] leading-7 text-white/78 sm:text-[16px]">Whether you are planning a hotel stay, considering a banquet or simply need an answer, the Annapurna team is ready to assist with warmth, clarity and care.</p>
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-          <a href="tel:+917566500040" className="flex h-14 items-center justify-center gap-2 rounded-full bg-[var(--emerald)] px-8 text-[10px] font-semibold uppercase tracking-[.12em] text-white"><Phone size={15}/>Call Now</a>
+          <a href="tel:+919179191110" className="flex h-14 items-center justify-center gap-2 rounded-full bg-[var(--emerald)] px-8 text-[10px] font-semibold uppercase tracking-[.12em] text-white"><Phone size={15}/>Call Now</a>
           <Link href="/#hotels" className="flex h-14 items-center justify-center rounded-full border border-white/30 bg-white/8 px-8 text-[10px] font-semibold uppercase tracking-[.12em] text-white backdrop-blur-md">Explore Hotels</Link>
         </div>
       </motion.div>

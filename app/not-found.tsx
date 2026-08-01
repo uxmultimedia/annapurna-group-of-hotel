@@ -14,7 +14,7 @@ export default function NotFound() {
           <p className="mx-auto mt-6 max-w-[570px] text-[14px] leading-7 text-[#657169]">The page may have moved, but a warm Annapurna welcome is still close by.</p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <Link href="/" className="flex h-13 items-center justify-center gap-2 rounded-full bg-[var(--emerald)] px-7 text-[10px] font-semibold uppercase tracking-[.12em] text-white"><ArrowLeft size={14}/>Return Home</Link>
-            <a href="tel:+917566500040" className="flex h-13 items-center justify-center gap-2 rounded-full border border-[#173c2b]/15 px-7 text-[10px] font-semibold uppercase tracking-[.12em] text-[#173c2b]"><Phone size={14}/>Call Us</a>
+            <a href="tel:+919179191110" className="flex h-13 items-center justify-center gap-2 rounded-full border border-[#173c2b]/15 px-7 text-[10px] font-semibold uppercase tracking-[.12em] text-[#173c2b]"><Phone size={14}/>Call Us</a>
           </div>
         </div>
       </main>

@@ -17,9 +17,17 @@ export function ContactForm() {
     const form = event.currentTarget;
     const data = new FormData(form);
     if (data.get("website")) return;
-    const phone = String(data.get("phone") || "").replace(/\D/g, "");
-    if (phone.length < 10) {
-      setError("Please enter a valid phone number with at least 10 digits.");
+    const name = String(data.get("name") || "").trim();
+    const enteredPhone = String(data.get("phone") || "").replace(/\D/g, "");
+    const phone = enteredPhone.length === 12 && enteredPhone.startsWith("91")
+      ? enteredPhone.slice(2)
+      : enteredPhone;
+    if (name.length < 2) {
+      setError("Please enter your name.");
+      return;
+    }
+    if (!/^[6-9]\d{9}$/.test(phone)) {
+      setError("Please enter a valid 10-digit Indian mobile number.");
       return;
     }
     setError("");
@@ -39,19 +47,19 @@ export function ContactForm() {
           <h2 id="contact-form-title" className="mt-5 font-[family-name:var(--font-cormorant)] text-[clamp(2.7rem,5vw,4rem)] font-medium text-[#173c2b]">How can we help?</h2>
           <p className="mt-4 text-[13px] leading-6 text-[#68736c]">Share a few details and the right member of our team will respond personally.</p>
           <AnimatePresence>
-            {sent && <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} role="status" className="mt-7 flex items-start gap-3 rounded-[16px] border border-[#0f6847]/20 bg-[#edf5ef] p-4 text-[12px] leading-6 text-[#244f3b]"><CheckCircle2 className="mt-0.5 shrink-0" size={18}/>Thank you. Your enquiry has been received and our team will be in touch shortly.</motion.div>}
+            {sent && <motion.div initial={{ opacity: 0, y: -10, scale: .98 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: .45, ease: "easeOut" }} role="status" className="mt-7 flex items-start gap-3 rounded-[16px] border border-[#0f6847]/20 bg-[#edf5ef] p-4 text-[12px] leading-6 text-[#244f3b]"><motion.span initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: .35, delay: .12, ease: "easeOut" }}><CheckCircle2 className="mt-0.5 shrink-0" size={18}/></motion.span><span><strong className="block text-[14px]">Thank you!</strong>Our team will contact you shortly.</span></motion.div>}
             {error && <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} role="alert" className="mt-5 rounded-[14px] bg-[#fff0ed] p-4 text-[12px] text-[#8d342c]">{error}</motion.p>}
           </AnimatePresence>
           <form onSubmit={submit} aria-busy={loading} className="mt-8 grid gap-5 sm:grid-cols-2">
             <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true"/>
-            <Field label="Full Name"><input required name="name" autoComplete="name" className={fieldClass}/></Field>
-            <Field label="Phone Number"><input required name="phone" type="tel" inputMode="tel" autoComplete="tel" className={fieldClass}/></Field>
-            <Field label="Email"><input required name="email" type="email" autoComplete="email" className={fieldClass}/></Field>
-            <Field label="Subject"><input required name="subject" className={fieldClass}/></Field>
+            <Field label="Full Name *"><input required name="name" minLength={2} autoComplete="name" className={fieldClass}/></Field>
+            <Field label="Phone Number *"><input required name="phone" type="tel" inputMode="numeric" autoComplete="tel" placeholder="98765 43210" className={fieldClass}/></Field>
+            <Field label="Email"><input name="email" type="email" autoComplete="email" className={fieldClass}/></Field>
+            <Field label="Subject"><input name="subject" className={fieldClass}/></Field>
             <Field label="Enquiry Type"><select name="type" className={fieldClass} defaultValue="Hotel Booking"><option>Hotel Booking</option><option>Banquet Booking</option><option>Corporate Stay</option><option>General Enquiry</option></select></Field>
             <div/>
-            <label className="text-[10px] font-semibold uppercase tracking-[.1em] text-[#647068] sm:col-span-2">Message<textarea required name="message" rows={5} className="mt-2 w-full rounded-[14px] border border-[#173c2b]/12 bg-white p-4 text-[13px] font-normal normal-case tracking-normal outline-none focus:border-[var(--emerald)]"/></label>
-            <label className="flex items-start gap-3 text-[11px] leading-5 text-[#657169] sm:col-span-2"><input required type="checkbox" className="mt-1 accent-[var(--emerald)]"/>I agree to the Privacy Policy and consent to being contacted about this enquiry.</label>
+            <label className="text-[10px] font-semibold uppercase tracking-[.1em] text-[#647068] sm:col-span-2">Message<textarea name="message" rows={5} className="mt-2 w-full rounded-[14px] border border-[#173c2b]/12 bg-white p-4 text-[13px] font-normal normal-case tracking-normal outline-none focus:border-[var(--emerald)]"/></label>
+            <label className="flex items-start gap-3 text-[11px] leading-5 text-[#657169] sm:col-span-2"><input type="checkbox" className="mt-1 accent-[var(--emerald)]"/>I agree to the Privacy Policy and consent to being contacted about this enquiry.</label>
             <button type="submit" disabled={loading} className="group flex h-14 items-center justify-center gap-2 rounded-full bg-[var(--emerald)] px-8 text-[10px] font-semibold uppercase tracking-[.12em] text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-[var(--emerald-deep)] sm:w-fit">{loading ? "Sending…" : "Send Enquiry"} <Send size={14} className="transition-transform group-hover:translate-x-1"/></button>
           </form>
         </div>

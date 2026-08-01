@@ -13,17 +13,17 @@ import { TrustMessage } from "./TrustMessage";
 const bookingOptions: readonly BookingOption[] = [
   {
     title: "Call Us",
-    detail: "75665 00040",
+    detail: "+91 91791 91110",
     icon: Phone,
-    href: "tel:+917566500040",
+    href: "tel:+919179191110",
     buttonLabel: "Call Now",
-    ariaLabel: "Call Annapurna Group of Hotels at 75665 00040",
+    ariaLabel: "Call Annapurna Group of Hotels at +91 91791 91110",
   },
   {
     title: "WhatsApp",
     detail: "Instant Assistance",
     icon: MessageCircle,
-    href: "https://wa.me/917566500040",
+    href: "https://wa.me/919179191110",
     buttonLabel: "Chat on WhatsApp",
     ariaLabel: "Chat with Annapurna Group of Hotels on WhatsApp",
     external: true,

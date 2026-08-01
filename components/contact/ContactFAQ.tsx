@@ -5,7 +5,7 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   ["How can I make a booking?", "Choose a hotel from our collection and use its booking options, or call our reservations team for personal assistance."],
-  ["Can I reserve through WhatsApp?", "Yes. Message us on WhatsApp at 75665 00040 and our team will help confirm availability and next steps."],
+  ["Can I reserve through WhatsApp?", "Yes. Message us on WhatsApp at +91 91791 91110 and our team will help confirm availability and next steps."],
   ["Do you organise corporate stays?", "Yes. We coordinate individual and group business stays, including recurring requirements and extended visits."],
   ["Can I book a banquet?", "Yes. Visit our Banquet page, request a venue visit or contact the events team to discuss your date and guest count."],
   ["How quickly will my enquiry be answered?", "We aim to respond as promptly as possible. Urgent same-day requests are best made by phone or WhatsApp."],

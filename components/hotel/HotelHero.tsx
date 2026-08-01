@@ -26,7 +26,7 @@ export function HotelHero({ hotel }: { hotel: HotelData }) {
         <p className="mt-5 max-w-[650px] text-[14px] leading-7 text-white/78 sm:text-[16px]">{hotel.shortDescription}</p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Link href="#booking-widget" className="flex h-14 items-center justify-center rounded-full bg-[var(--emerald)] px-8 text-[10px] font-semibold uppercase tracking-[.13em] shadow-xl transition hover:-translate-y-0.5 hover:bg-[var(--emerald-deep)]">Book Your Stay</Link>
-          <a href="tel:+917566500040" className="flex h-14 items-center justify-center gap-2 rounded-full border border-white/30 bg-white/8 px-8 text-[10px] font-semibold uppercase tracking-[.13em] backdrop-blur-md transition hover:bg-white/15"><Phone size={15} />Call Now</a>
+          <a href="tel:+919179191110" className="flex h-14 items-center justify-center gap-2 rounded-full border border-white/30 bg-white/8 px-8 text-[10px] font-semibold uppercase tracking-[.13em] backdrop-blur-md transition hover:bg-white/15"><Phone size={15} />Call Now</a>
         </div>
         <div className="mt-9 flex flex-wrap gap-2.5">
           {badges.map(([Icon, label]) => <span key={label} className="flex items-center gap-2 rounded-full border border-white/17 bg-black/15 px-3.5 py-2 text-[9px] font-medium tracking-[.05em] text-white/75 backdrop-blur-md"><Icon size={13} />{label}</span>)}

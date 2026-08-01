@@ -14,7 +14,7 @@ export function ContactInfo() {
       </h2>
       <address className="mt-6 space-y-4 not-italic">
         <a
-          href="tel:+917566500040"
+          href="tel:+919179191110"
           className="group/contact flex items-start gap-3 text-[11px] leading-5 text-white/65 transition-colors hover:text-[#4faf7b] max-md:justify-center"
         >
           <Phone
@@ -23,7 +23,7 @@ export function ContactInfo() {
             strokeWidth={1.45}
             className="mt-0.5 shrink-0"
           />
-          75665 00040
+          +91 91791 91110
         </a>
         <a
           href="mailto:info@annapurnagroupofhotels.com"

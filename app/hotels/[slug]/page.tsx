@@ -38,11 +38,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: hotel.seoDescription,
       url: `/hotels/${hotel.slug}`,
       type: "website",
+      images: [{ url: "/images/logo/logo.png", width: 1254, height: 1254, alt: "Annapurna Group of Hotels logo" }],
     },
     twitter: {
       card: "summary",
       title: hotel.name,
       description: hotel.seoDescription,
+      images: ["/images/logo/logo.png"],
     },
   };
 }
@@ -60,7 +62,7 @@ export default async function HotelPage({ params }: PageProps) {
       name: hotel.name,
       url,
       description: hotel.seoDescription,
-      telephone: "+91-75665-00040",
+      telephone: "+91 91791 91110",
       priceRange: "₹₹",
       starRating: { "@type": "Rating", ratingValue: hotel.rating },
       aggregateRating: { "@type": "AggregateRating", ratingValue: hotel.rating, reviewCount: 1000 },

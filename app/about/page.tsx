@@ -22,12 +22,14 @@ export const metadata: Metadata = {
       "Creating comfortable, consistent and memorable hospitality experiences in Bhopal since 2018.",
     url: "/about",
     type: "website",
+    images: [{ url: "/images/logo/logo.png", width: 1254, height: 1254, alt: "Annapurna Group of Hotels logo" }],
   },
   twitter: {
     card: "summary",
     title: "About Annapurna Group of Hotels",
     description:
       "Meet the people, principles and guest-first philosophy behind six trusted hotels in Bhopal.",
+    images: ["/images/logo/logo.png"],
   },
 };
 
