@@ -37,7 +37,6 @@ declare module "cloudflare:workers" {
 }
 
 declare module "drizzle-orm/d1" {
-  import type { DrizzleD1Database } from "drizzle-orm/d1";
   import type * as Drizzle from "drizzle-orm";
 
   type D1Database = import("@cloudflare/workers-types").D1Database;
@@ -48,5 +47,5 @@ declare module "drizzle-orm/d1" {
   ): DrizzleD1Database<TSchema>;
 
   export type DrizzleD1Database<TSchema extends Record<string, unknown> = Record<string, never>> =
-    Drizzle.BaseSQLiteDatabase<any, TSchema>;
+    Drizzle.BaseSQLiteDatabase<unknown, TSchema>;
 }

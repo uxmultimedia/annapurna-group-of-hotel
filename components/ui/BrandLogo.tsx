@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 
 interface BrandLogoProps {
@@ -9,6 +8,8 @@ interface BrandLogoProps {
   priority?: boolean;
   variant?: "dark" | "light";
 }
+
+const LOGO_SRC = "/images/logo/annpurna-logo-transparent.png";
 
 export default function BrandLogo({
   className = "",
@@ -34,14 +35,13 @@ export default function BrandLogo({
 
   return (
     <span className={`inline-flex ${className}`}>
-      <Image
-        src="/images/logo/annpurna-logo-transparent.png"
+      <img
+        src={LOGO_SRC}
         alt="Annapurna Group of Hotels"
-        width={220}
-        height={104}
         className={`object-contain ${imageClassName}`}
-        priority={priority}
         onError={() => setFailed(true)}
+        loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : "auto"}
       />
     </span>
   );
