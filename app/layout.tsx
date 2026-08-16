@@ -50,13 +50,13 @@ export const metadata: Metadata = {
     siteName: "Annapurna Group of Hotels",
     locale: "en_IN",
     type: "website",
-    images: [{ url: "/images/logo/logo.png", width: 1254, height: 1254, alt: "Annapurna Group of Hotels logo" }],
+    images: [{ url: "/images/logo/annpurna-logo-transparent.png", width: 1254, height: 1254, alt: "Annapurna Group of Hotels logo" }],
   },
   twitter: {
     card: "summary_large_image",
     title: seoTitle,
     description: seoDescription,
-    images: ["/images/logo/logo.png"],
+    images: ["/images/logo/annpurna-logo-transparent.png"],
   },
   robots: {
     index: true,

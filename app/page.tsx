@@ -7,7 +7,7 @@ import { HotelsSection } from "@/components/hotels/HotelsSection";
 import { Navbar } from "@/components/navbar/Navbar";
 
 const siteUrl = "https://annapurna-hotels-navbar.shrisatyasai25.chatgpt.site";
-const logoUrl = `${siteUrl}/images/logo/logo.png`;
+const logoUrl = `${siteUrl}/images/logo/annpurna-logo-transparent.png`;
 const address = {
   "@type": "PostalAddress",
   addressLocality: "Bhopal",

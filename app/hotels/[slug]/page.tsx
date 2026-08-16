@@ -38,13 +38,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: hotel.seoDescription,
       url: `/hotels/${hotel.slug}`,
       type: "website",
-      images: [{ url: "/images/logo/logo.png", width: 1254, height: 1254, alt: "Annapurna Group of Hotels logo" }],
+      images: [{ url: "/images/logo/annpurna-logo-transparent.png", width: 1254, height: 1254, alt: "Annapurna Group of Hotels logo" }],
     },
     twitter: {
       card: "summary",
       title: hotel.name,
       description: hotel.seoDescription,
-      images: ["/images/logo/logo.png"],
+      images: ["/images/logo/annpurna-logo-transparent.png"],
     },
   };
 }

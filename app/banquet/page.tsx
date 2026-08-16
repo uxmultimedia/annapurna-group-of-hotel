@@ -24,13 +24,13 @@ export const metadata: Metadata = {
     description: "Elegant Bhopal venues, thoughtful catering and attentive event support for meaningful celebrations.",
     url: "/banquet",
     type: "website",
-    images: [{ url: "/images/logo/logo.png", width: 1254, height: 1254, alt: "Annapurna Group of Hotels logo" }],
+    images: [{ url: "/images/logo/annpurna-logo-transparent.png", width: 1254, height: 1254, alt: "Annapurna Group of Hotels logo" }],
   },
   twitter: {
     card: "summary",
     title: "Annapurna Banquets & Events",
     description: "Premium venues for weddings, corporate events and private celebrations in Bhopal.",
-    images: ["/images/logo/logo.png"],
+    images: ["/images/logo/annpurna-logo-transparent.png"],
   },
 };
 

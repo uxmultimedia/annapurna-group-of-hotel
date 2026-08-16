@@ -35,7 +35,7 @@ export default function BrandLogo({
   return (
     <span className={`inline-flex ${className}`}>
       <Image
-        src="/images/logo/logo.png"
+        src="/images/logo/annpurna-logo-transparent.png"
         alt="Annapurna Group of Hotels"
         width={220}
         height={104}

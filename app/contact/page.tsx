@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     description: "Speak with our Bhopal hospitality team about rooms, banquets, business stays and guest support.",
     url: "/contact",
     type: "website",
-    images: [{ url: "/images/logo/logo.png", width: 1254, height: 1254, alt: "Annapurna Group of Hotels logo" }],
+    images: [{ url: "/images/logo/annpurna-logo-transparent.png", width: 1254, height: 1254, alt: "Annapurna Group of Hotels logo" }],
   },
   twitter: {
     card: "summary",
     title: "Contact Annapurna Group of Hotels",
     description: "Hotel reservations, banquet enquiries and 24×7 guest assistance in Bhopal.",
-    images: ["/images/logo/logo.png"],
+    images: ["/images/logo/annpurna-logo-transparent.png"],
   },
 };
 
